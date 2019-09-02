@@ -6,6 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 export class ContractionHistoryService {
   contractions: Contraction[] = [];
   contractions$ = new BehaviorSubject<Contraction>(null);
+  laborProgress$ = new BehaviorSubject<number>(0);
 
   addContraction(contraction: Contraction) {
     this.contractions$.next(contraction);
@@ -21,8 +22,25 @@ export class ContractionHistoryService {
         contraction.secondsSince = secondsSince;
         this.contractions.push(contraction);
         this.saveToLocalStorage();
+        this.calculateLaborProgress();
       }
     });
+  }
+
+  calculateLaborProgress() {
+    const beginning = 20 * 60;
+    const end = 5 * 60;
+    const lastSecondsSince = this.contractions[this.contractions.length - 1].secondsSince;
+    const gap = beginning - end;
+    const count = lastSecondsSince - end;
+    
+    if (lastSecondsSince < end && lastSecondsSince !== 0) {
+      this.laborProgress$.next(100);
+    } else if (count > gap) {
+      this.laborProgress$.next(0);
+    } else {
+      this.laborProgress$.next(Math.round(count / gap) * 100);
+    }
   }
 
   calculateTimeSince(secondsSince) {

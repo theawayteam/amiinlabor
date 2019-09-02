@@ -23,4 +23,35 @@ $amiinlabor-theme: mat-light-theme($amiinlabor-primary, $amiinlabor-accent, $ami
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include angular-material-theme($amiinlabor-theme);
+
+$boy-primary: mat-palette($mat-light-blue);
+$boy-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$boy-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$boy-theme: mat-light-theme($boy-primary, $boy-accent, $boy-warn);
+
+
+$girl-primary: mat-palette($mat-pink);
+$girl-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$girl-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$girl-theme: mat-light-theme($girl-primary, $girl-accent, $girl-warn);
+
+
+.neutral-theme {
+  @include angular-material-theme($amiinlabor-theme);
+}
+
+.girl-theme {
+  @include angular-material-theme($girl-theme);
+}
+
+.boy-theme {
+  @include angular-material-theme($boy-theme);
+}

@@ -7,10 +7,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MaterialModule } from './material';
 import { ContractionHistoryService } from './contraction-history.service';
+import { ThemeService } from './theme.service';
+import { LaborProgressComponent } from './labor-progress/labor-progress.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LaborProgressComponent
   ],
   imports: [
     BrowserModule,
@@ -19,7 +22,8 @@ import { ContractionHistoryService } from './contraction-history.service';
     MaterialModule,
   ],
   providers: [
-    ContractionHistoryService
+    ContractionHistoryService,
+    ThemeService
   ],
   bootstrap: [AppComponent]
 })

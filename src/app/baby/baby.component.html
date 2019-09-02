@@ -1,0 +1,8 @@
+<mat-form-field>
+  <mat-label>Your Baby's Sex</mat-label>
+  <mat-select [value]="$theme.theme" (selectionChange)="$theme.setTheme($event.value)">
+    <mat-option value="neutral-theme">Don't Know!</mat-option>
+    <mat-option value="boy-theme">Boy</mat-option>
+    <mat-option value="girl-theme">Girl</mat-option>
+  </mat-select>
+</mat-form-field>

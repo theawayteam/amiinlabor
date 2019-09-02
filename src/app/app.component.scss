@@ -22,12 +22,27 @@
   justify-content: center;
   a {
     margin: 16px 0;
-    &.active {
-      background-color: map-get($amiinlabor-primary, 200);
-    }
   }
 }
 
-.amiinlabor {
+labor-progress {
   grid-area: header;
+}
+
+.neutral-theme.nav {
+  a.active {
+    background-color: map-get($amiinlabor-primary, 200);
+  }
+}
+
+.girl-theme.nav{
+  a.active {
+    background-color: map-get($girl-primary, 200);
+  }
+}
+
+.boy-theme.nav {
+  a.active {
+    background-color: map-get($boy-primary, 200);
+  }
 }
