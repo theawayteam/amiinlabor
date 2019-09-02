@@ -1,0 +1,13 @@
+<button
+  mat-flat-button
+  color="primary"
+  [disabled]="timerActive"
+  on-click="startTimer()"
+>Start Contraction</button>
+
+<button
+  mat-flat-button
+  color="warn"
+  [disabled]="!timerActive"
+  on-click="stopTimer()"
+>Stop Contraction</button>

@@ -1,0 +1,32 @@
+@import '../theme';
+
+.container {
+  display: grid;
+  grid-template-columns: auto 40px;
+  grid-template-rows: 102px auto;
+  grid-template-areas: 
+    "header header";
+  height: 100vh;
+}
+
+.area {
+  display: block;
+  height: 100%;
+  padding: 16px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  a {
+    margin: 16px 0;
+    &.active {
+      background-color: map-get($amiinlabor-primary, 200);
+    }
+  }
+}
+
+.amiinlabor {
+  grid-area: header;
+}
