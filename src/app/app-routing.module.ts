@@ -13,6 +13,9 @@ const routes: Routes = [
   }, {
     path: 'tracking',
     loadChildren: () => import('./tracking/').then(mod => mod.TrackingModule)
+  }, {
+    path: 'help',
+    loadChildren: () => import('./help/').then(mod => mod.HelpModule)
   }
 ];
 

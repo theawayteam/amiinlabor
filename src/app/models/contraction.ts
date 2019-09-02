@@ -2,6 +2,7 @@ export class Contraction {
   index: number;
   startTime: number;
   endTime?: number;
+  timeSince?: string;
   
   constructor(fields: Partial<Contraction>) {
     Object.assign(this, fields);

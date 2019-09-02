@@ -8,7 +8,7 @@ import { ContractionHistoryService } from '../contraction-history.service';
   styleUrls: ['./tracking.component.scss'] 
 })
 export class TrackingComponent {
-  displayedColumns: string[] = ['index', 'startTime', 'endTime', 'duration'];
+  displayedColumns: string[] = ['index', 'startTime', 'duration', 'timeSince'];
 
   constructor(
     private $contractionHistory: ContractionHistoryService
