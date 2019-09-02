@@ -3,6 +3,7 @@ export class Contraction {
   startTime: number;
   endTime?: number;
   timeSince?: string;
+  secondsSince: number;
   
   constructor(fields: Partial<Contraction>) {
     Object.assign(this, fields);
