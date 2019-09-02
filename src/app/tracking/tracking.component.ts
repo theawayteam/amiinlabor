@@ -12,6 +12,5 @@ export class TrackingComponent {
 
   constructor(
     private $contractionHistory: ContractionHistoryService
-  ) {
-  }
+  ) {}
 }

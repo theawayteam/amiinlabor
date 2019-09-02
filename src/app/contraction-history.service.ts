@@ -9,6 +9,23 @@ export class ContractionHistoryService {
 
   addContraction(contraction: Contraction) {
     this.contractions$.next(contraction);
-    this.contractions.push(contraction);
+  }
+
+  init() {
+    this.loadFromLocalStorage();
+    this.contractions$.subscribe(contraction => {
+      if (contraction) {
+        this.contractions.push(contraction);
+        this.saveToLocalStorage();
+      }
+    });
+  }
+
+  loadFromLocalStorage() {
+    this.contractions = JSON.parse(window.localStorage.contractions || '[]').map(c => new Contraction(c));
+  }
+
+  saveToLocalStorage() {
+    window.localStorage.contractions = JSON.stringify(this.contractions);
   }
 }
