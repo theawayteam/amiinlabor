@@ -1,1 +1,4 @@
 <mat-progress-bar mode="determinate" [value]="$contractionHistory.laborProgress$ | async"></mat-progress-bar>
+<p>Last contraction duration: {{lastContraction?.duration}}</p>
+<p>Time since last contraction: {{lastContraction?.timeSince}}</p>
+<p>{{progressText}}</p>

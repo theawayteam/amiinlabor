@@ -32,14 +32,14 @@ export class ContractionHistoryService {
     const end = 5 * 60;
     const lastSecondsSince = this.contractions[this.contractions.length - 1].secondsSince;
     const gap = beginning - end;
-    const count = lastSecondsSince - end;
+    const count = gap - (lastSecondsSince - end);
     
     if (lastSecondsSince < end && lastSecondsSince !== 0) {
       this.laborProgress$.next(100);
-    } else if (count > gap) {
+    } else if (lastSecondsSince > beginning) {
       this.laborProgress$.next(0);
     } else {
-      this.laborProgress$.next(Math.round(count / gap) * 100);
+      this.laborProgress$.next(Math.round(count / gap * 100));
     }
   }
 
