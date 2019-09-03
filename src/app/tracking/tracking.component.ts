@@ -11,6 +11,6 @@ export class TrackingComponent {
   displayedColumns: string[] = ['index', 'startTime', 'duration', 'timeSince'];
 
   constructor(
-    private $contractionHistory: ContractionHistoryService
+    public $contractionHistory: ContractionHistoryService
   ) {}
 }

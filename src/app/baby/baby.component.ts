@@ -8,7 +8,7 @@ import { ThemeService } from '../theme.service';
 })
 export class BabyComponent {
   constructor(
-    private $theme: ThemeService
+    public $theme: ThemeService
   ) {}
 
 }

@@ -13,7 +13,7 @@ export class LaborProgressComponent implements OnInit {
   lastContraction: Contraction = null;
 
   constructor(
-    private $contractionHistory: ContractionHistoryService,
+    public $contractionHistory: ContractionHistoryService,
     private $theme: ThemeService
   ) {}
 
