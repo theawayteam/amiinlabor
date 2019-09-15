@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ContractionHistoryService } from '../contraction-history.service';
 import { Contraction } from '../models';
-import { ThemeService } from '../theme.service';
 
 @Component({
   selector: 'labor-progress',
@@ -13,12 +12,16 @@ export class LaborProgressComponent implements OnInit {
   lastContraction: Contraction = null;
 
   constructor(
-    public $contractionHistory: ContractionHistoryService,
-    private $theme: ThemeService
+    public $contractionHistory: ContractionHistoryService
   ) {}
 
   ngOnInit() {
-    this.$contractionHistory.laborProgress$.subscribe(this.updateProgressText.bind(this)) 
+    this.$contractionHistory.laborProgress$.subscribe(this.updateProgressText.bind(this));
+    if (this.$contractionHistory.contractions.length) {
+      setTimeout(() => {
+        this.lastContraction = this.$contractionHistory.contractions[this.$contractionHistory.contractions.length - 1];
+      });
+    }
     this.$contractionHistory.contractions$.subscribe(contraction => {
       this.lastContraction = contraction;
     });

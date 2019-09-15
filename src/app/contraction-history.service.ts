@@ -33,8 +33,12 @@ export class ContractionHistoryService {
     const lastSecondsSince = this.contractions[this.contractions.length - 1].secondsSince;
     const gap = beginning - end;
     const count = gap - (lastSecondsSince - end);
+
+    if (lastSecondsSince === 0) {
+      return 0;
+    }
     
-    if (lastSecondsSince < end && lastSecondsSince !== 0) {
+    if (lastSecondsSince < end) {
       this.laborProgress$.next(100);
     } else if (lastSecondsSince > beginning) {
       this.laborProgress$.next(0);
