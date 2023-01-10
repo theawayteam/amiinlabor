@@ -49,6 +49,7 @@ workflows:
   build_and_deploy:
     jobs:
       - build:
+          context: away-team-buckets
           filters:
             branches:
               only: master
